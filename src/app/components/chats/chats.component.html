@@ -1,0 +1,100 @@
+<h1>CommonChat</h1>
+<div class="chat-container">
+    <div class="chat-message" *ngFor="let message of chatService.data"
+        [ngClass]="{ 'current-user': isCurrentUserMessage(message) }">
+        <div class="message-content">
+            {{ message.message }}
+        </div>
+        <div class="message-info">
+            <span class="sender-name">{{ message.username }}</span>
+            <span class="message-timestamp">{{ message.time }}</span>
+        </div>
+    </div>
+</div>
+
+<form (ngSubmit)="sendMessage()" class="chat-input-container">
+    <input type="text" [(ngModel)]="message" name="message" placeholder="Type your message..." class="chat-input">
+    <button type="submit" class="chat-button">Send</button>
+</form>
+
+<h1>SendListenByConnectionId</h1>
+<div class="chat-container">
+    <div class="chat-message" *ngFor="let message of chatService.data"
+        [ngClass]="{ 'current-user': isCurrentUserMessage(message) }">
+        <div class="message-content">
+            {{ message.message }}
+        </div>
+        <div class="message-info">
+            <span class="sender-name">{{ message.username }}</span>
+            <span class="message-timestamp">{{ message.time }}</span>
+        </div>
+    </div>
+</div>
+
+<form (ngSubmit)="sendMessageToConnectionId()" class="chat-input-container">
+    <input type="text" [(ngModel)]="connectionId" name="connectionId" placeholder="Type your connectionId..." class="chat-input">
+    <input type="text" [(ngModel)]="message" name="message" placeholder="Type your message..." class="chat-input">
+    <button type="submit" class="chat-button">Send</button>
+</form>
+
+<h1>SendListenByUserId</h1>
+<div class="chat-container">
+    <div class="chat-message" *ngFor="let message of chatService.data"
+        [ngClass]="{ 'current-user': isCurrentUserMessage(message) }">
+        <div class="message-content">
+            {{ message.message }}
+        </div>
+        <div class="message-info">
+            <span class="sender-name">{{ message.username }}</span>
+            <span class="message-timestamp">{{ message.time }}</span>
+        </div>
+    </div>
+</div>
+
+<form (ngSubmit)="sendMessageToUserId()" class="chat-input-container">
+    <input type="text" [(ngModel)]="userId" name="userId" placeholder="Type your userId..." class="chat-input">
+    <input type="text" [(ngModel)]="message" name="message" placeholder="Type your message..." class="chat-input">
+    <button type="submit" class="chat-button">Send</button>
+</form>
+
+<h1>SendListenByName</h1>
+<div class="chat-container">
+    <div class="chat-message" *ngFor="let message of chatService.dataByName"
+        [ngClass]="{ 'current-user': isCurrentUserMessage(message) }">
+        <div class="message-content">
+            {{ message.message }}
+        </div>
+        <div class="message-info">
+            <span class="sender-name">{{ message.username }}</span>
+            <span class="message-timestamp">{{ message.time }}</span>
+        </div>
+    </div>
+</div>
+
+<form (ngSubmit)="sendMessageByName()" class="chat-input-container">
+    <input type="text" [(ngModel)]="name" name="userId" placeholder="Type your userId..." class="chat-input">
+    <input type="text" [(ngModel)]="message" name="message" placeholder="Type your message..." class="chat-input">
+    <button type="submit" class="chat-button">Send</button>
+</form>
+
+
+<!-- <div *ngFor="let chat of chats">
+    <h1>{{ chat.username }}</h1>
+    <div class="chat-container">
+        <div class="chat-message" *ngFor="let message of chat.messages"
+            [ngClass]="{ 'current-user': isCurrentUserMessage(message) }">
+            <div class="message-content">
+                {{ message.message }}
+            </div>
+            <div class="message-info">
+                <span class="sender-name">{{ message.username }}</span>
+                <span class="message-timestamp">{{ message.time }}</span>
+            </div>
+        </div>
+    </div>
+    <form (ngSubmit)="sendMessageByName()" class="chat-input-container">
+        <input type="text" [(ngModel)]="name" name="userId" placeholder="Type your userId..." class="chat-input">
+        <input type="text" [(ngModel)]="message" name="message" placeholder="Type your message..." class="chat-input">
+        <button type="submit" class="chat-button">Send</button>
+    </form>
+</div> -->

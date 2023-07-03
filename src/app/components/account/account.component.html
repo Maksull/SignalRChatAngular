@@ -1,0 +1,40 @@
+<div *ngIf="account!=undefined" class="container account-container">
+    <h1 class="text-center mb-5">My Account</h1>
+    <div class="form-group row">
+        <label for="username" class="col-sm-3 col-form-label"><i class="fas fa-user"></i> Username</label>
+        <div class="col-sm-9">
+            <p class="form-control-plaintext" id="username">{{account.username}}</p>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="first-name" class="col-sm-3 col-form-label"><i class="fas fa-user"></i> First Name</label>
+        <div class="col-sm-9">
+            <p class="form-control-plaintext" id="first-name">{{account.firstName}}</p>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="last-name" class="col-sm-3 col-form-label"><i class="fas fa-user"></i> Last Name</label>
+        <div class="col-sm-9">
+            <p class="form-control-plaintext" id="last-name">{{account.lastName}}</p>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="email" class="col-sm-3 col-form-label"><i class="fas fa-envelope"></i> Email</label>
+        <div class="col-sm-9">
+            <p class="form-control-plaintext" id="email">{{account.email}}</p>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="phone" class="col-sm-3 col-form-label"><i class="fas fa-phone"></i> Phone</label>
+        <div class="col-sm-9">
+            <p class="form-control-plaintext" id="phone">{{account.phoneNumber}}</p>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="d-flex justify-content-end justify-content-md-end">
+            <button type="button" class="btn btn-danger" id="logout-btn" (click)="logout()"><i
+                    class="fas fa-sign-out-alt"></i>
+                Logout</button>
+        </div>
+    </div>
+</div>
