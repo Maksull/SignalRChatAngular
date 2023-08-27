@@ -1,26 +1,30 @@
-<div class="login-page">
-    <div class="container">
-        <mat-card *ngIf="isLoginRegister" class="login">
-            <div class="d-flex justify-content-around mb-2">
-                <mat-card-title [ngClass]="{'bold': isLogin}" (click)="toggleLogin()">Login</mat-card-title>
-                <mat-card-title [ngClass]="{'bold': isRegister}" (click)="toggleRegister()">Register</mat-card-title>
+<div class="h-full bg-gradient-to-r from-indigo-500 from-30% via-sky-500 via-60% to-emerald-500 to-90%  pt-20">
+    <div class="px-6 max-w-[1000px] m-auto">
+        <mat-card *ngIf="isLoginRegister" class="w-[70%] p-3 pt-5 top-[10%] m-auto">
+            <div class="flex flex-row justify-around my-4">
+                <mat-card-title [ngClass]="{'font-bold underline': isLogin}" (click)="toggleLogin()">Login</mat-card-title>
+                <mat-card-title [ngClass]="{'font-bold underline': isRegister}" (click)="toggleRegister()">Register</mat-card-title>
             </div>
             <mat-card-content *ngIf="isRegisted">
                 <h2 class="text-center">Thanks!</h2>
                 <p>Now you need to verify your email. Please check your email. Once confirmed, you will be able to
                     log in to your account.</p>
-                <div class="text-center"><button class="btn btn-primary" routerLink="/login" (click)="registed()">Login</button></div>
+                <div class="text-center">
+                    <button class="bg-blue-500 rounded px-4 py-2 mr-2" routerLink="/login" (click)="registed()">
+                        Login
+                    </button>
+                </div>
             </mat-card-content>
             <mat-card-content *ngIf="!isRegisted">
                 <form *ngIf="isLogin && loginForm" [formGroup]="loginForm" (ngSubmit)="submit()">
-                    <mat-form-field>
+                    <mat-form-field class="w-full">
                         <mat-label>Name</mat-label>
                         <input matInput formControlName="username" placeholder="Enter your name" />
                         <mat-error *ngIf="(isSubmitted || loginUsername.touched) && loginUsername.invalid">
                             Please enter the name
                         </mat-error>
                     </mat-form-field>
-                    <mat-form-field>
+                    <mat-form-field class="w-full">
                         <mat-label>Password</mat-label>
                         <input matInput [ngClass]="{'hide-password': hide}" formControlName="password"
                             placeholder="Enter your password" />
@@ -30,49 +34,50 @@
                             Please enter the password
                         </mat-error>
                     </mat-form-field>
-                    <mat-error *ngFor="let error of errors" class="bg-danger mt-2 p-2 text-center text-white">
+                    <mat-error *ngFor="let error of errors"
+                        class="bg-red-600 rounded-sm mt-2 p-2 text-center text-white">
                         {{error}}
                     </mat-error>
                     <div class="text-center mt-2">
                         <span>Forgot your password? </span>
-                        <a (click)="resetPassword()" class="ml-1">Reset Password</a>
+                        <a (click)="resetPassword()" class="text-blue-500 underline">Reset Password</a>
                     </div>
-                    <div class="d-flex justify-content-center text-center mt-2">
-                        <button class="btn btn-primary m-1" type="submit">Login</button>
-                        <button class="btn btn-secondary m-1" routerLink="/store">Back</button>
+                    <div class="flex flex-row justify-center mt-2">
+                        <button class="bg-blue-500 rounded px-4 py-2 mr-2" type="submit">Login</button>
+                        <button class="bg-gray-500 rounded px-4 py-2" type="submit">Back</button>
                     </div>
                 </form>
 
                 <form *ngIf="isRegister && registerForm" [formGroup]="registerForm" (ngSubmit)="submit()">
-                    <mat-form-field>
+                    <mat-form-field class="w-full">
                         <mat-label>First name</mat-label>
                         <input matInput formControlName="firstName" placeholder="Enter your first name" />
                         <mat-error *ngIf="(isSubmitted || registerFirstName.touched) && registerFirstName.invalid">
                             Please enter the first name
                         </mat-error>
                     </mat-form-field>
-                    <mat-form-field>
+                    <mat-form-field class="w-full">
                         <mat-label>Last name</mat-label>
                         <input matInput formControlName="lastName" placeholder="Enter your last name" />
                         <mat-error *ngIf="(isSubmitted || registerLastName.touched) && registerLastName.invalid">
                             Please enter the last name
                         </mat-error>
                     </mat-form-field>
-                    <mat-form-field>
+                    <mat-form-field class="w-full">
                         <mat-label>Username</mat-label>
                         <input matInput formControlName="username" placeholder="Enter your username" />
                         <mat-error *ngIf="(isSubmitted || registerUsername.touched) && registerUsername.invalid">
                             Please enter the username
                         </mat-error>
                     </mat-form-field>
-                    <mat-form-field>
+                    <mat-form-field class="w-full">
                         <mat-label>Email</mat-label>
                         <input matInput formControlName="email" placeholder="Enter your email" />
                         <mat-error *ngIf="(isSubmitted || registerEmail.touched) && registerEmail.invalid">
                             Please enter the email
                         </mat-error>
                     </mat-form-field>
-                    <mat-form-field>
+                    <mat-form-field class="w-full">
                         <mat-label>Phone number</mat-label>
                         <span matPrefix>+38 &nbsp;</span>
                         <input matInput formControlName="phoneNumber" placeholder="0000000000" />
@@ -81,7 +86,7 @@
                             Please enter the phone number
                         </mat-error>
                     </mat-form-field>
-                    <mat-form-field>
+                    <mat-form-field class="w-full">
                         <mat-label>Password</mat-label>
                         <input matInput [ngClass]="{'hide-password': hide}" formControlName="password"
                             placeholder="Enter your password" />
@@ -92,7 +97,7 @@
                             Please enter the password
                         </mat-error>
                     </mat-form-field>
-                    <mat-form-field>
+                    <mat-form-field class="w-full">
                         <mat-label>Confirm password</mat-label>
                         <input matInput [ngClass]="{'hide-password': hide}" formControlName="confirmPassword"
                             placeholder="Confirm you password" />
@@ -104,18 +109,19 @@
                             Please confirm you password
                         </mat-error>
                     </mat-form-field>
-                    <mat-error *ngFor="let error of errors" class="bg-danger mt-2 p-2 text-center text-white">
+                    <mat-error *ngFor="let error of errors"
+                        class="bg-red-600 rounded-sm mt-2 p-2 text-center text-white">
                         {{error}}
                     </mat-error>
-                    <div class="d-flex justify-content-center text-center mt-2">
-                        <button class="btn btn-primary m-1" type="submit">Register</button>
-                        <button class="btn btn-secondary m-1" routerLink="/store">Back</button>
+                    <div class="flex flex-row justify-center mt-2">
+                        <button class="bg-blue-500 rounded px-4 py-2 mr-2" type="submit">Register</button>
+                        <button class="bg-gray-500 rounded px-4 py-2" routerLink="/store">Back</button>
                     </div>
                 </form>
             </mat-card-content>
         </mat-card>
 
-        <mat-card *ngIf="isResetPassword" class="login">
+        <mat-card *ngIf="isResetPassword" class="w-[70%] p-3 pt-5 top-[10%] m-auto">
             <mat-card-title class="text-center">Reset your password</mat-card-title>
             <mat-card-content *ngIf="isResetPasswordSent">
                 <div class="m-2 text-center">
@@ -134,7 +140,7 @@
             </mat-card-content>
             <mat-card-content *ngIf="!isResetPasswordSent">
                 <form [formGroup]="resetPasswordForm!" (ngSubmit)="submit()">
-                    <mat-form-field>
+                    <mat-form-field class="w-full">
                         <mat-label>Username</mat-label>
                         <input matInput formControlName="username" placeholder="Enter your username" />
                         <mat-error
@@ -142,15 +148,15 @@
                             Please enter your username
                         </mat-error>
                     </mat-form-field>
-                    <mat-error *ngFor="let error of errors" class="bg-danger mt-2 p-2 text-center text-white">
+                    <mat-error *ngFor="let error of errors" class="bg-red-600 rounded-sm mt-2 p-2 text-center text-white">
                         {{error}}
                     </mat-error>
-                    <button class="btn btn-primary" routerLink="/login">Reset password</button>
+                    <button class="bg-blue-500 rounded px-4 py-2 mr-2" routerLink="/login">Reset password</button>
                 </form>
             </mat-card-content>
         </mat-card>
 
-        <mat-card *ngIf="isConfirmResetPassword" class="login">
+        <mat-card *ngIf="isConfirmResetPassword" class="w-[70%] p-3 pt-5 top-[10%] m-auto">
             <mat-card-title class="text-center">Reset your password</mat-card-title>
             <mat-card-content *ngIf="isPasswordChanged" class="text-center">
                 <h2>Congratulations!</h2>
@@ -159,7 +165,7 @@
             </mat-card-content>
             <mat-card-content *ngIf="!isPasswordChanged">
                 <form [formGroup]="confirmResetPasswordForm!" (ngSubmit)="submit()">
-                    <mat-form-field>
+                    <mat-form-field class="w-full">
                         <mat-label>New password</mat-label>
                         <input matInput [ngClass]="{'hide-password': hide}" formControlName="newPassword"
                             placeholder="Enter your new password" />
@@ -171,7 +177,7 @@
                             Please enter your new password
                         </mat-error>
                     </mat-form-field>
-                    <mat-form-field>
+                    <mat-form-field class="w-full">
                         <mat-label>Confirm the password</mat-label>
                         <input matInput [ngClass]="{'hide-password': hide}" formControlName="confirmNewPassword"
                             placeholder="Enter your new password" />
@@ -183,19 +189,19 @@
                             Please confirm the password
                         </mat-error>
                     </mat-form-field>
-                    <mat-error *ngFor="let error of errors" class="bg-danger mt-2 p-2 text-center text-white">
+                    <mat-error *ngFor="let error of errors" class="bg-red-600 rounded-sm mt-2 p-2 text-center text-white">
                         {{error}}
                     </mat-error>
-                    <button class="btn btn-primary" type="submit">Reset password</button>
+                    <button class="bg-blue-500 rounded px-4 py-2 mr-2" type="submit">Reset password</button>
                 </form>
             </mat-card-content>
         </mat-card>
 
-        <div *ngIf="isConfirmEmail" class="my-col-2">
+        <div *ngIf="isConfirmEmail" class="bg-white rounded shadow-2xl p-4">
             <div *ngIf="isEmailConfirmed" class="m-2 text-center">
                 <h2>Congratulations!</h2>
                 <p>Your email is verified. Now you can login to your account.</p>
-                <button class="btn btn-primary" routerLink="/login">Login</button>
+                <button class="bg-blue-500 rounded px-4 py-2 mr-2" routerLink="/login">Login</button>
             </div>
             <div *ngIf="!isEmailConfirmed" class="m-2 text-center">
                 <h2>Something went wrong :(</h2>
@@ -205,7 +211,7 @@
                     If the problem persists, please contact our support team for further assistance.
                     We apologize for any inconvenience caused and will do our best to resolve the issue promptly.
                 </p>
-                <button class="btn btn-primary" routerLink="/login">Register</button>
+                <button class="bg-blue-500 rounded px-4 py-2 mr-2" routerLink="/login">Register</button>
             </div>
         </div>
     </div>

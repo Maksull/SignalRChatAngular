@@ -2,14 +2,21 @@
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
         <mat-icon>menu</mat-icon>
     </button>
-    <span class="toolbar-item standout">SignalRChat</span>
-    <span routerLink="/account" class="toolbar-item">Account</span>
-    <span routerLink="/chats" class="toolbar-item">Chats</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-        <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-        <mat-icon>share</mat-icon>
-    </button>
+    <div class="flex flex-row w-full items-center justify-between">
+        <div>
+            <span class="mr-7 ml-2">SignalRChat</span>
+            <span routerLink="/account" class="mr-2 cursor-pointer">Account</span>
+            <span routerLink="/chats" class="mr-2  cursor-pointer">Chats</span>
+        </div>
+        <div>
+            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+                <mat-icon>favorite</mat-icon>
+            </button>
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+                <mat-icon>share</mat-icon>
+            </button>
+        </div>
+    </div>
+
+
 </mat-toolbar>
